@@ -1,0 +1,21 @@
+create table employees(
+employee_id int ,
+name_ varchar(255),
+salary_ int 
+);
+
+INSERT INTO employees(
+ employee_id,
+ name_,
+ salary_
+ )
+
+VALUES
+(1,"Sam",1200),
+(2,"Riya",1245),
+(3,"Priya",1534);
+
+select * from employees;
+
+select * from employees
+where salary_ > 1240;
