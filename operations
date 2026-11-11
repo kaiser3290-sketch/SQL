@@ -1,0 +1,38 @@
+-- 3) Write JOIN queries to fetch combined data:
+
+-- a) Match customers and salesmen who are from the same city.
+
+-- b) Link each customer to their salesman using salesman id.
+
+-- c) Show orders where customer city and salesman city are different.
+
+-- d) Show all orders along with customer names.
+
+-- 4) Filtered reports:
+
+-- a) Show customers (with their grade) where grade is present (not NULL).
+
+select * from Customer
+where grade is not NULL
+
+-- b) Show customers + salesmen where commission lies between 0.12 and 0.14.
+
+select Customer.cust_name,Salesman.name,Salesman.Comission from Customer join Salesman on Customer.Salesman_id=Salesman.Salesman_id
+where Salesman.Comission BETWEEN 0.12 and 0.14
+
+-- c) Calculate commission amount for orders where customer grade is 200 or more:
+
+select Customer.cust_name,Salesman.Comission,Orders.purch_amt from Orders join Salesman 
+on Orders.Salesman_id=Salesman.Salesman_id
+join Customer
+on Orders.customer_id=Customer.customer_id
+WHERE Customer.grade >= 200
+
+-- - Commission Amount = purchase amount * commission rate.
+
+-- 5) Date-based query:
+
+-- a) Show customer and order details for orders placed on a specific date.
+
+select * from Orders join Customer on Orders.customer_id=Customer.customer_id
+where Orders.ord_date='2012-09-10'
